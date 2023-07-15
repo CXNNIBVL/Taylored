@@ -5,15 +5,15 @@ clc;
 syms x;
 
 % ==== Parameters =====
+DEGREE = 15;
+F(x) = sin(x);
+EXPANSION_POINT = pi/2;
 X_VIEWDIFF_EXPANSION_POINT = 10;
 Y_VIEWDIFF_EXPANSION_POINT = 4;
-DEGREE = 15;
-F(x) = x^5 + 2*x^2 - 4*x;
-EXPANSION_POINT = 1;
 SLEEP_DURATION_SECONDS = 0;
-SHOW_TAYLER_POLY = 0;
 SHOW_DIVERGENCE = 1;
 DIVERGENCE_SAMPLES = 75;
+SHOW_TAYLOR_POLY = 0;
 % ==== End Parameters =====
 
 % Setup figure
@@ -59,9 +59,7 @@ for k = 0:DEGREE
             ymin_Ft = min(yF(i), ytpoly(i));
             ymax_Ft = max(yF(i), ytpoly(i));
 
-            dotsize = 3;
-            
-            distance = ymax_Ft - ymin_Ft;
+            dotsize = 3;           
             step = 0.2;
 
             ydots_i = ymin_Ft:step:ymax_Ft;
@@ -76,7 +74,7 @@ for k = 0:DEGREE
     title_poly_state = [];
     
     % Might just show the Polynomial as well
-    if SHOW_TAYLER_POLY
+    if SHOW_TAYLOR_POLY
         title_poly_state = [ newline '= ' char(tpoly) ];
     end
     
